@@ -1,5 +1,6 @@
 import javafx.geometry.Point2D;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,9 +10,18 @@ import java.util.List;
  * This class is for generating test datasets that can be used by the java 8 examples
  */
 public class DataGenerator {
-    public Grid generatePerfectGrid() {
+    double cellWidth = 10.0;
+    double cellHeight = 15.0;
 
-        return null;
+    public Grid generatePerfectGrid() {
+        List<Point2D> ptList = new ArrayList<>();
+        for (int i=0; i<10; i++)
+        {
+            for (int j = 0; j < 10; j++) {
+                ptList.add(new Point2D(j*cellWidth,i*cellHeight));
+            }
+        }
+        return new Grid(ptList);
     }
 
     public Grid generateRotatedGrid(double angleInDegrees) {
@@ -29,9 +39,5 @@ public class DataGenerator {
         return grid;
     }
 
-    private class Grid {
-        private List<Point2D> points;
-
-    }
 
 }
